@@ -62,6 +62,7 @@ const GameQuestion = () => {
   const [showNoHoverPopup, setShowNoHoverPopup] = useState(false)
   const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 })
   const [evasionCount, setEvasionCount] = useState(0)
+  const [hoverAttempts, setHoverAttempts] = useState(0) // Track hover attempts for popup timing
   const noButtonRef = useRef(null)
   const containerRef = useRef(null)
 
@@ -96,14 +97,24 @@ const GameQuestion = () => {
   }
 
   const handleNoHover = () => {
-    moveButton() // Move button when hovered
-    setShowNoHoverPopup(true) // Show popup
+    moveButton() // Always move button when hovered
+    setHoverAttempts(prev => prev + 1) // Increment hover attempts
+    
+    // Only show popup every 3rd attempt
+    if (hoverAttempts % 3 === 2) { // When hoverAttempts becomes 2, 5, 8, etc. (every 3rd time)
+      setShowNoHoverPopup(true)
+    }
   }
 
   const handleNoClick = (e) => {
     e.preventDefault()
-    moveButton() // Move button when clicked too
-    setShowNoHoverPopup(true) // Show popup
+    moveButton() // Always move button when clicked
+    setHoverAttempts(prev => prev + 1) // Increment attempts for clicks too
+    
+    // Only show popup every 3rd attempt
+    if (hoverAttempts % 3 === 2) { // When hoverAttempts becomes 2, 5, 8, etc. (every 3rd time)
+      setShowNoHoverPopup(true)
+    }
   }
 
   const closeYesPopup = () => {
