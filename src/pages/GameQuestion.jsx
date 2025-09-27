@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const YesPopup = ({ isOpen, onClose }) => {
   if (!isOpen) return null
@@ -61,44 +61,49 @@ const GameQuestion = () => {
   const [showYesPopup, setShowYesPopup] = useState(false)
   const [showNoHoverPopup, setShowNoHoverPopup] = useState(false)
   const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 })
-  const [noButtonClicks, setNoButtonClicks] = useState(0)
+  const [evasionCount, setEvasionCount] = useState(0)
+  const noButtonRef = useRef(null)
+  const containerRef = useRef(null)
+
+  // Simple positions within the container - no complex calculations
+  const positions = [
+    { x: 0, y: 0 },      // Center (default)
+    { x: 150, y: 0 },    // Right
+    { x: -150, y: 0 },   // Left  
+    { x: 0, y: -80 },    // Up
+    { x: 0, y: 80 },     // Down
+    { x: 120, y: -60 },  // Top right
+    { x: -120, y: -60 }, // Top left
+    { x: 120, y: 60 },   // Bottom right
+    { x: -120, y: 60 },  // Bottom left
+  ]
+
+  const moveButton = () => {
+    // Pick a random position from our safe positions
+    const randomIndex = Math.floor(Math.random() * positions.length)
+    const newPosition = positions[randomIndex]
+    setNoButtonPosition(newPosition)
+    setEvasionCount(prev => prev + 1)
+  }
+
+  // Auto scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   const handleYesClick = () => {
     setShowYesPopup(true)
   }
 
   const handleNoHover = () => {
-    setShowNoHoverPopup(true)
+    moveButton() // Move button when hovered
+    setShowNoHoverPopup(true) // Show popup
   }
 
   const handleNoClick = (e) => {
     e.preventDefault()
-    
-    // Make the button run away!
-    const newClicks = noButtonClicks + 1
-    setNoButtonClicks(newClicks)
-    
-    // Calculate random position for the button to escape to
-    const maxX = window.innerWidth - 200  // button width buffer
-    const maxY = window.innerHeight - 100 // button height buffer
-    const minDistance = 100 // minimum distance to move
-    
-    let newX, newY
-    
-    do {
-      newX = Math.random() * (maxX - minDistance * 2) + minDistance
-      newY = Math.random() * (maxY - minDistance * 2) + minDistance
-    } while (
-      Math.abs(newX - noButtonPosition.x) < minDistance && 
-      Math.abs(newY - noButtonPosition.y) < minDistance
-    )
-    
-    setNoButtonPosition({ x: newX, y: newY })
-    
-    // Show pleading popup occasionally
-    if (newClicks % 2 === 0) {
-      setShowNoHoverPopup(true)
-    }
+    moveButton() // Move button when clicked too
+    setShowNoHoverPopup(true) // Show popup
   }
 
   const closeYesPopup = () => {
@@ -112,7 +117,7 @@ const GameQuestion = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-sunset page-container">
+    <div ref={containerRef} className="min-h-screen bg-gradient-sunset page-container">
       <YesPopup isOpen={showYesPopup} onClose={closeYesPopup} />
       <NoHoverPopup isOpen={showNoHoverPopup} onClose={closeNoHoverPopup} />
       
@@ -149,17 +154,19 @@ const GameQuestion = () => {
               Yes! 😊
             </button>
 
-            {/* No button - can be moved or in original position */}
+            {/* No button - evades cursor and clicks */}
             <button 
+              ref={noButtonRef}
               onMouseEnter={handleNoHover}
               onClick={handleNoClick}
-              className={`no-button ${noButtonClicks > 0 ? 'evasive-button' : ''} transition-transform duration-200`}
+              className={`no-button transition-all duration-500 ease-out ${
+                evasionCount > 0 ? 'shadow-2xl' : ''
+              }`}
               style={
-                noButtonClicks > 0 
+                evasionCount > 0 
                   ? {
-                      position: 'fixed',
-                      left: `${noButtonPosition.x}px`,
-                      top: `${noButtonPosition.y}px`,
+                      transform: `translate(${noButtonPosition.x}px, ${noButtonPosition.y}px)`,
+                      position: 'relative',
                       zIndex: 1000
                     }
                   : {}
@@ -169,11 +176,23 @@ const GameQuestion = () => {
             </button>
           </div>
 
-          {noButtonClicks > 0 && (
-            <p className="text-lg font-dancing text-pink-600 mt-8">
-              Hey! Why is the button running away? 🏃‍♀️💨
-              {noButtonClicks > 3 && " (You've tried " + noButtonClicks + " times! Just say yes! 😄)"}
-            </p>
+          {/* Dynamic messages based on evasion count */}
+          {evasionCount > 0 && (
+            <div className="text-center mt-8">
+              <p className="text-lg font-dancing text-pink-600">
+                {evasionCount === 1 && "Oops! The button is shy! 🙈"}
+                {evasionCount === 2 && "It's running away from you! 🏃‍♀️💨"}
+                {evasionCount === 3 && "This button really doesn't want to be clicked! 😅"}
+                {evasionCount === 4 && "It's playing hard to get! 🤭"}
+                {evasionCount === 5 && "The button has trust issues! 😂"}
+                {evasionCount >= 6 && "You're so persistent! I love that about you! 🥰💕"}
+              </p>
+              {evasionCount > 3 && (
+                <p className="text-md font-dancing text-purple-600 mt-2">
+                  (Evasion attempts: {evasionCount} - Just say yes already! 😄)
+                </p>
+              )}
+            </div>
           )}
         </div>
 
@@ -187,10 +206,11 @@ const GameQuestion = () => {
         </div>
 
         {/* Encouraging message */}
-        {noButtonClicks > 5 && (
+        {evasionCount > 6 && (
           <div className="bg-pink-100/30 backdrop-blur-md rounded-2xl p-6 shadow-lg">
             <p className="text-2xl font-dancing text-pink-700">
-              Come on, you know you want to play! 🥺💕
+              Okay okay, you win! You're too determined! 🥺💕<br />
+              <span className="text-lg">Maybe just try saying yes instead? �</span>
             </p>
           </div>
         )}
