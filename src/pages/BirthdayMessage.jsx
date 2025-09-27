@@ -80,93 +80,91 @@ const BirthdayMessage = () => {
           </div>
 
           {/* Birthday message */}
-          <div className="space-y-6 px-4 lg:px-16">
+          <div className="space-y-3 px-4 lg:px-16">
             
             {/* Main greeting */}
-            <p className="text-2xl font-dancing text-center text-pink-700 mb-6">
+            <p className="text-3xl font-dancing text-center text-pink-700 mb-4">
               My Dearest Love, today is your special day! 🎉💕
             </p>
             
-            <p className="text-lg font-dancing text-center text-purple-700">
+            <p className="text-2xl font-dancing text-center text-purple-700">
               Every moment with you feels like a celebration, but today... today is extra magical! ✨
             </p>
             
-            <p className="text-lg font-dancing text-center text-pink-700">
+            <p className="text-2xl font-dancing text-center text-pink-700">
               From the way you laugh at my silly jokes to how you make ordinary moments feel extraordinary... 🌟
             </p>
             
-            <p className="text-lg font-dancing text-center text-purple-700">
+            <p className="text-2xl font-dancing text-center text-purple-700">
               You have this incredible way of making everyone around you feel special and loved! 💫
             </p>
             
             {/* Love quotes section */}
-            <div className="bg-pink-100/40 rounded-2xl p-6 my-6">
-              <p className="text-lg font-dancing text-center text-rose-700 mb-2">
+            <div className="bg-pink-100/40 rounded-2xl p-6 my-4">
+              <p className="text-2xl font-dancing text-center text-rose-700 mb-2">
                 🌸 You are my sunshine on cloudy days 🌸
               </p>
-              <p className="text-lg font-dancing text-center text-purple-600 mb-2">
+              <p className="text-2xl font-dancing text-center text-purple-600 mb-2">
                 💖 My favorite hello and hardest goodbye 💖
               </p>
-              <p className="text-lg font-dancing text-center text-pink-600">
+              <p className="text-2xl font-dancing text-center text-pink-600">
                 ✨ The reason my heart smiles every single day ✨
               </p>
             </div>
             
             {/* Personal message */}
-            <p className="text-lg font-dancing text-center text-gray-800">
+            <p className="text-2xl font-dancing text-center text-gray-800">
               You bring so much joy, laughter, and love into my life. Your smile lights up my world!  🌟
             </p>
             
-            <p className="text-lg font-dancing text-center text-purple-700">
+            <p className="text-2xl font-dancing text-center text-purple-700">
               I love how you make everything better just by being you... 💕
             </p>
             
-            <p className="text-lg font-dancing text-center text-pink-700">
-              Your kindness, your laugh, your cute little habits... everything about you is perfect! 🥰
+            <p className="text-2xl font-dancing text-center text-pink-700">
+              Your kindness, your laugh, your cute little habits... everything about you is perfect! 
             </p>
             
-            <p className="text-lg font-dancing text-center text-rose-700">
-              The way you scrunch your nose when you're thinking, how you get excited about little things... 😊
+            <p className="text-2xl font-dancing text-center text-rose-700">
+              The way you scrunch your nose when you're thinking, how you get excited about little things... 
             </p>
             
-            <p className="text-lg font-dancing text-center text-purple-700">
+            <p className="text-2xl font-dancing text-center text-purple-700">
               How you always know exactly what to say to make me feel better... You're my safe place! 💕
             </p>
             
-            <p className="text-lg font-dancing text-center text-pink-700">
+            <p className="text-2xl font-dancing text-center text-pink-700">
               Every single day with you is a gift, but today we get to celebrate YOU! 🎁✨
             </p>
             
             {/* Birthday wishes section */}
-            <div className="bg-gradient-to-r from-pink-200/50 to-purple-200/50 rounded-2xl p-6 my-6">
-              <p className="text-xl font-dancing text-center text-purple-800 mb-4">
+            <div className="bg-gradient-to-r from-pink-200/50 to-purple-200/50 rounded-2xl p-6 my-4">
+              <p className="text-2xl font-dancing text-center text-purple-800 mb-3">
                 🎂 Birthday Wishes for You 🎂
               </p>
-              <div className="space-y-2">
-                <p className="text-base font-dancing text-center text-gray-800">🌟 May this year bring you endless happiness</p>
-                <p className="text-base font-dancing text-center text-gray-800">💝 May all your dreams come true</p>
-                <p className="text-base font-dancing text-center text-gray-800">🌸 May you always feel as loved as you are</p>
-                <p className="text-base font-dancing text-center text-gray-800">✨ May we create a million more memories together</p>
-                <p className="text-base font-dancing text-center text-gray-800">🦋 May you always stay as wonderful as you are today</p>
-                <p className="text-base font-dancing text-center text-gray-800">💖 May every moment bring you closer to your dreams</p>
-                <p className="text-base font-dancing text-center text-gray-800">🌺 May you continue to inspire everyone around you</p>
+              <div className="space-y-1">
+                <p className="text-xl font-dancing text-center text-gray-800">🌟 May this year bring you endless happiness</p>
+                <p className="text-xl font-dancing text-center text-gray-800">💝 May all your dreams come true</p>
+                <p className="text-xl font-dancing text-center text-gray-800">🌸 May you always feel as loved as you are</p>
+                <p className="text-xl font-dancing text-center text-gray-800">✨ May we create a million more memories together</p>
+                <p className="text-xl font-dancing text-center text-gray-800">🦋 May you always stay as wonderful as you are today</p>
+                <p className="text-xl font-dancing text-center text-gray-800">💖 May every moment bring you closer to your dreams</p>
+                <p className="text-xl font-dancing text-center text-gray-800">🌺 May you continue to inspire everyone around you</p>
               </div>
             </div>
             
             {/* Closing message */}
-            <p className="text-lg font-dancing text-center text-rose-700">
+            <p className="text-2xl font-dancing text-center text-rose-700">
               I created this little website just for you because you deserve something as special as you are! 🎮💕
             </p>
             
-            <p className="text-lg font-dancing text-center text-pink-700">
-              I wanted to create something that would make you laugh, smile, and feel all the love I have for you! 😄
+            <p className="text-2xl font-dancing text-center text-pink-700">
+              I wanted to create something that would make you laugh, smile, and feel all the love I have for you! 
             </p>
             
-            <p className="text-lg font-dancing text-center text-purple-700">
-              You mean the absolute world to me, and I hope this brings you as much joy as you bring me! 🌍💖
-            </p>
-            
-            <p className="text-lg font-dancing text-center text-purple-700">
+            <p className="text-2xl font-dancing text-center text-purple-700">
+              You mean the absolute world to me, and I hope this brings you as much joy as you bring me! 🌍💖</p>
+            <p className="text-2xl font-dancing text-center text-purple-700">
               Now... are you ready for a cute surprise? I made a fun little game for us!  ✨
             </p>
             
@@ -197,11 +195,11 @@ const BirthdayMessage = () => {
             />
           </div>
           
-          <p className="text-xl font-dancing text-center text-purple-700 mb-3">
+          <p className="text-2xl font-dancing text-center text-purple-700 mb-3">
             Ready for your special birthday surprise? 🎁✨
           </p>
           
-          <p className="text-lg font-dancing text-center text-gray-800 mb-6">
+          <p className="text-xl font-dancing text-center text-gray-800 mb-6">
             I promise it's going to be fun and silly! Just the way you like it! 💕
           </p>
           

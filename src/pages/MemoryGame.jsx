@@ -244,7 +244,7 @@ const MemoryGame = () => {
         {gameStarted && !gameWon && (
           <div className="bg-pink-100/30 backdrop-blur-md rounded-2xl p-6 shadow-lg">
             <p className="text-xl font-dancing text-pink-700">
-              {moves === 0 && "Click your first card to start! 😊"}
+              {moves === 0 && "Click your first card to start!  "}
               {moves > 0 && moves <= 5 && "Great start! Keep going! 💪✨"}
               {moves > 5 && moves <= 10 && "You're doing amazing! 🌟💕"}
               {moves > 10 && moves <= 15 && "So close! Almost there! 🎯🔥"}

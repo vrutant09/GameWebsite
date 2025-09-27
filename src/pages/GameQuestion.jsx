@@ -164,7 +164,7 @@ const GameQuestion = () => {
               onClick={handleYesClick}
               className="yes-button relative z-10"
             >
-              Yes! 😊
+              Yes! 
             </button>
 
             {/* No button - evades cursor and clicks */}
@@ -195,14 +195,14 @@ const GameQuestion = () => {
               <p className="text-lg font-dancing text-pink-600">
                 {evasionCount === 1 && "Oops! The button is shy! 🙈"}
                 {evasionCount === 2 && "It's running away from you! 🏃‍♀️💨"}
-                {evasionCount === 3 && "This button really doesn't want to be clicked! 😅"}
+                {evasionCount === 3 && "This button really doesn't want to be clicked! "}
                 {evasionCount === 4 && "It's playing hard to get! 🤭"}
-                {evasionCount === 5 && "The button has trust issues! 😂"}
+                {evasionCount === 5 && "The button has trust issues!  "}
                 {evasionCount >= 6 && "You're so persistent! I love that about you! 🥰💕"}
               </p>
               {evasionCount > 3 && (
                 <p className="text-md font-dancing text-purple-600 mt-2">
-                  (Evasion attempts: {evasionCount} - Just say yes already! 😄)
+                  (Evasion attempts: {evasionCount} - Just say yes already!  )
                 </p>
               )}
             </div>

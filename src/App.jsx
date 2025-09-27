@@ -60,7 +60,7 @@ function App() {
             gravity={0.3}
           />
         )}
-        <GameBackgroundMusic onConfettiTrigger={triggerConfetti} />
+        <GameBackgroundMusic onConfettiTrigger={triggerConfetti} delayPrompt={2000} />
         <AnimatedRoutes />
       </div>
     </Router>

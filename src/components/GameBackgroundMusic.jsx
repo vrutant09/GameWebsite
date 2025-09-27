@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const GameBackgroundMusic = ({ songsPreloaded = false, onMusicChoice, onSongsLoaded, isPreloadOnly = false }) => {
+const GameBackgroundMusic = ({ songsPreloaded = false, onMusicChoice, onSongsLoaded, isPreloadOnly = false, delayPrompt = 0 }) => {
   const audioRef = useRef(null)
   const preloadRefs = useRef([])
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTrack, setCurrentTrack] = useState(0)
-  const [showMusicPrompt, setShowMusicPrompt] = useState(true)
+  const [showMusicPrompt, setShowMusicPrompt] = useState(false) // Start as false
   const [volume, setVolume] = useState(0.6)
   const [allSongsLoaded, setAllSongsLoaded] = useState(false)
 
@@ -62,6 +62,19 @@ const GameBackgroundMusic = ({ songsPreloaded = false, onMusicChoice, onSongsLoa
       }
     }
   }, [songsPreloaded, onSongsLoaded])
+
+  // Delay showing music prompt
+  useEffect(() => {
+    if (delayPrompt > 0) {
+      const timer = setTimeout(() => {
+        setShowMusicPrompt(true)
+      }, delayPrompt)
+      
+      return () => clearTimeout(timer)
+    } else {
+      setShowMusicPrompt(true)
+    }
+  }, [delayPrompt])
 
   useEffect(() => {
     if (audioRef.current) {

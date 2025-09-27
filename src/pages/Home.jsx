@@ -97,7 +97,7 @@ const Home = () => {
             Get ready for a fun little game I created just for you! 🎯
           </p>
           <p className="game-paragraph text-center">
-            It's going to be cute, funny, and totally worth your time! 😊
+            It's going to be cute, funny, and totally worth your time!  
           </p>
         </div>
 
