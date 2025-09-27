@@ -39,7 +39,7 @@ function App() {
 
   const triggerConfetti = () => {
     setShowConfetti(true)
-    setTimeout(() => setShowConfetti(false), 3000)
+    setTimeout(() => setShowConfetti(false), 8000) // Extended to 8 seconds
   }
 
   if (isLoading) {

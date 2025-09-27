@@ -93,11 +93,26 @@ const Home = () => {
         </div>
 
         <div className="max-w-4xl mx-auto bg-white/20 backdrop-blur-md rounded-3xl p-12 shadow-2xl">
+          {/* Add cute GIF */}
+          <div className="flex justify-center mb-8">
+            <img 
+              src="/BubuDudu-Buburidingdudu.gif" 
+              alt="Bubu riding Dudu" 
+              className="w-32 h-32 rounded-2xl floating-flower"
+            />
+          </div>
+          
           <p className="game-paragraph text-center">
             Get ready for a fun little game I created just for you! 🎯
           </p>
           <p className="game-paragraph text-center">
             It's going to be cute, funny, and totally worth your time!  
+          </p>
+          <p className="game-paragraph text-center">
+            Just remember, to stick around and DONT MIND IF THE MUSIC STOPS 😭
+          </p>
+          <p className="game-paragraph text-center">
+            The last stage might be tricky just see the instructions and follow it.
           </p>
         </div>
 
