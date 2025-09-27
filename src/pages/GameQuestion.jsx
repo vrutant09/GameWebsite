@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const YesPopup = ({ isOpen, onClose }) => {
   if (!isOpen) return null
@@ -58,6 +59,7 @@ const NoHoverPopup = ({ isOpen, onClose }) => {
 }
 
 const GameQuestion = () => {
+  const navigate = useNavigate()
   const [showYesPopup, setShowYesPopup] = useState(false)
   const [showNoHoverPopup, setShowNoHoverPopup] = useState(false)
   const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 })
@@ -119,8 +121,8 @@ const GameQuestion = () => {
 
   const closeYesPopup = () => {
     setShowYesPopup(false)
-    // Here you would navigate to the actual game
-    alert("🎮 Great! The actual game would start here! This is where you'll implement the main game logic. 💕")
+    // Navigate to the memory game
+    navigate('/memory-game')
   }
 
   const closeNoHoverPopup = () => {

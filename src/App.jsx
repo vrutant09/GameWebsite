@@ -5,6 +5,7 @@ import PageTransition from './components/PageTransition'
 import Home from './pages/Home'
 import BirthdayMessage from './pages/BirthdayMessage'
 import GameQuestion from './pages/GameQuestion'
+import MemoryGame from './pages/MemoryGame'
 import './index.css'
 
 const AnimatedRoutes = () => {
@@ -15,7 +16,8 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/birthday" element={<PageTransition><BirthdayMessage /></PageTransition>} />
-        <Route path="/game" element={<PageTransition><GameQuestion /></PageTransition>} />
+        <Route path="/game-question" element={<PageTransition><GameQuestion /></PageTransition>} />
+        <Route path="/memory-game" element={<PageTransition><MemoryGame /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )

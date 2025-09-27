@@ -5,7 +5,7 @@ const BirthdayMessage = () => {
   const navigate = useNavigate()
 
   const goToGameQuestion = () => {
-    navigate('/game')
+    navigate('/game-question')
   }
 
   return (
